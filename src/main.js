@@ -14,13 +14,10 @@ var currentCover;
 window.addEventListener('load', randomizeBook);
 
 // Create your event handlers and other functions here 👇
-
-
 // We've provided one function to get you started
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
-
 
 function randomizeBook() {
   var newImage = covers[getRandomIndex(covers)];
