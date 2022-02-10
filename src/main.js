@@ -21,11 +21,19 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
+
 function randomizeBook() {
   var newImage = covers[getRandomIndex(covers)];
   var newTitle = titles[getRandomIndex(titles)];
   var newDescriptor1 = descriptors[getRandomIndex(descriptors)];
   var newDescriptor2 = descriptors[getRandomIndex(descriptors)];
+  makeCover(newImage, newTitle, newDescriptor1, newDescriptor2)
 }
 
-currentCover = new Cover(newImage, newTitle, newDescriptor1, newDescriptor2);
+function makeCover(newImage, newTitle, newDescriptor1, newDescriptor2) {
+  currentCover = new Cover(newImage, newTitle, newDescriptor1, newDescriptor2);
+  coverImage.src = newImage;
+  coverTitle.innerText = newTitle;
+  tagLine1.innerText = newDescriptor1;
+  tagLine2.innerText = newDescriptor2;
+}
