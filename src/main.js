@@ -20,3 +20,12 @@ window.addEventListener('load', randomizeBook);
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
+
+function randomizeBook() {
+  var newImage = covers[getRandomIndex(covers)];
+  var newTitle = titles[getRandomIndex(titles)];
+  var newDescriptor1 = descriptors[getRandomIndex(descriptors)];
+  var newDescriptor2 = descriptors[getRandomIndex(descriptors)];
+}
+
+currentCover = new Cover(newImage, newTitle, newDescriptor1, newDescriptor2);
