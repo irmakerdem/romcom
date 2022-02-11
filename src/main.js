@@ -23,7 +23,7 @@ window.addEventListener('load', randomizeBook);
 randomCoverButton.addEventListener('click', randomizeBook);
 makeCoverButton.addEventListener('click', displayForm);
 viewSavedCoversButton.addEventListener('click', displaySavedCovers);
-
+homeButton.addEventListener('click', displayHomePage);
 
 // Create your event handlers and other functions here 👇
 // We've provided one function to get you started
@@ -31,12 +31,6 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-
-//When a user clicks the “Make Your Own Cover” button, we should see the form,
-//and the homepage view should be hidden
-//When the Form view is visible, the “Show New Random Cover” and “Save Cover”
-//buttons should be hidden
-//When the Form view is visible, the “Home” button should be visible
 
 function show(element) {
   element.classList.remove('hidden');
@@ -57,8 +51,8 @@ function displayForm() {
   hide(saveCoverButton);
   // show the home button
   show(homeButton);
-  // save cover page
-}
+  /// save cover page
+};
 
 function displaySavedCovers() {
   // show saved covers section
@@ -71,15 +65,24 @@ function displaySavedCovers() {
   hide(saveCoverButton);
   // show home button
   show(homeButton);
-}
+  // hide view form
+  hide(viewForm);
+  /// save cover page
+};
 
-
-
-//When a user clicks the “View Saved Covers” button,
-//we should see the saved covers section, and the homepage view should be hidden
-//When the Saved Covers view is visible, the “Show New Random Cover”
-//and “Save Cover” buttons should be hidden
-//When the Saved Covers view is visible, the “Home” button should be visible
+function displayHomePage() {
+  // hide home buttons
+  hide(homeButton);
+  // show show new random cover button
+  show(randomCoverButton);
+  // show save cover button
+  show(saveCoverButton);
+  // hide viewForm
+  hide(viewForm);
+  // show homePage
+  show(homePage);
+  // save cover page
+};
 
 
 function randomizeBook() {
