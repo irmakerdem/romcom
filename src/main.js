@@ -7,8 +7,10 @@ var randomCoverButton = document.querySelector(".random-cover-button");
 var makeCoverButton = document.querySelector(".make-new-button");
 var saveCoverButton = document.querySelector(".save-cover-button");
 var homeButton = document.querySelector(".home-button");
+var viewSavedCoversButton = document.querySelector(".view-saved-button")
 var viewForm = document.querySelector(".form-view");
 var homePage = document.querySelector(".home-view");
+var savedCoversSection = document.querySelector(".saved-covers-section");
 
 // We've provided a few variables below
 var savedCovers = [
@@ -20,6 +22,8 @@ var currentCover;
 window.addEventListener('load', randomizeBook);
 randomCoverButton.addEventListener('click', randomizeBook);
 makeCoverButton.addEventListener('click', displayForm);
+viewSavedCoversButton.addEventListener('click', displaySavedCovers);
+
 
 // Create your event handlers and other functions here 👇
 // We've provided one function to get you started
@@ -55,6 +59,27 @@ function displayForm() {
   show(homeButton);
   // save cover page
 }
+
+function displaySavedCovers() {
+  // show saved covers section
+  show(savedCoversSection);
+  // hide the homePage
+  hide(homePage);
+  // hide show new random cover button
+  hide(randomCoverButton);
+  // hide save cover button
+  hide(saveCoverButton);
+  // show home button
+  show(homeButton);
+}
+
+
+
+//When a user clicks the “View Saved Covers” button,
+//we should see the saved covers section, and the homepage view should be hidden
+//When the Saved Covers view is visible, the “Show New Random Cover”
+//and “Save Cover” buttons should be hidden
+//When the Saved Covers view is visible, the “Home” button should be visible
 
 
 function randomizeBook() {
