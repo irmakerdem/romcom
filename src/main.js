@@ -4,6 +4,11 @@ var coverTitle = document.querySelector(".cover-title");
 var tagLine1 = document.querySelector(".tagline-1");
 var tagLine2 = document.querySelector(".tagline-2");
 var randomCoverButton = document.querySelector(".random-cover-button");
+var makeCoverButton = document.querySelector(".make-new-button");
+var saveCoverButton = document.querySelector(".save-cover-button");
+var homeButton = document.querySelector(".home-button");
+var viewForm = document.querySelector(".form-view");
+var homePage = document.querySelector(".home-view");
 
 // We've provided a few variables below
 var savedCovers = [
@@ -14,12 +19,43 @@ var currentCover;
 // Add your event listeners here 👇
 window.addEventListener('load', randomizeBook);
 randomCoverButton.addEventListener('click', randomizeBook);
+makeCoverButton.addEventListener('click', displayForm);
 
 // Create your event handlers and other functions here 👇
 // We've provided one function to get you started
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
+
+
+//When a user clicks the “Make Your Own Cover” button, we should see the form,
+//and the homepage view should be hidden
+//When the Form view is visible, the “Show New Random Cover” and “Save Cover”
+//buttons should be hidden
+//When the Form view is visible, the “Home” button should be visible
+
+function show(element) {
+  element.classList.remove('hidden');
+}
+
+function hide(element) {
+  element.classList.add('hidden');
+}
+
+function displayForm() {
+  // show the form
+  show(viewForm);
+  // hide the homepage
+  hide(homePage);
+  // hide shownew random cover button
+  hide(randomCoverButton);
+  // hide save cover button
+  hide(saveCoverButton);
+  // show the home button
+  show(homeButton);
+  // save cover page
+}
+
 
 function randomizeBook() {
   var newImage = covers[getRandomIndex(covers)];
