@@ -30,6 +30,8 @@ makeCoverButton.addEventListener('click', displayForm);
 viewSavedCoversButton.addEventListener('click', displaySavedCovers);
 homeButton.addEventListener('click', displayHomePage);
 makeMyBookButton.addEventListener('click', createNewCover);
+saveCoverButton.addEventListener('click', saveCover);
+
 
 // Create your event handlers and other functions here 👇
 // We've provided one function to get you started
@@ -104,3 +106,12 @@ function createNewCover() {
 }
 
 ///clearing form?
+
+function saveCover() {
+  //push current cover into saved covers array
+  //can only push cover once, no duplicates - use unique id?
+  //show/hide saved covers page/save covers button?
+  //make sure all saved covers display correctly
+
+  //makeCover(newImage, newTitle, newDescriptor1, newDescriptor2)???
+}
