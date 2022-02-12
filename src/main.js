@@ -37,7 +37,6 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-
 function show(element) {
   element.classList.remove('hidden');
 }
@@ -47,49 +46,32 @@ function hide(element) {
 }
 
 function displayForm() {
-  // show the form
   show(viewForm);
-  // hide the homepage
   hide(homePage);
-  // hide shownew random cover button
   hide(randomCoverButton);
-  // hide save cover button
   hide(saveCoverButton);
-  // show the home button
   show(homeButton);
   /// save cover page
 };
 
 function displaySavedCovers() {
-  // show saved covers section
   show(savedCoversSection);
-  // hide the homePage
   hide(homePage);
-  // hide show new random cover button
   hide(randomCoverButton);
-  // hide save cover button
   hide(saveCoverButton);
-  // show home button
   show(homeButton);
-  // hide view form
   hide(viewForm);
   /// save cover page
 };
 
 function displayHomePage() {
-  // hide home buttons
   hide(homeButton);
-  // show show new random cover button
   show(randomCoverButton);
-  // show save cover button
   show(saveCoverButton);
-  // hide viewForm
   hide(viewForm);
-  // show homePage
   show(homePage);
   /// save cover page
 };
-
 
 function randomizeBook() {
   var newImage = covers[getRandomIndex(covers)];
@@ -108,22 +90,17 @@ function makeCover(newImage, newTitle, newDescriptor1, newDescriptor2) {
 }
 
 function createNewCover() {
-// declare variables and assign to input values
-// push values to arrays
-// call makeCover function
+  event.preventDefault();
+  var newImage = inputImage.value;
+  var newTitle = inputTitle.value;
+  var newDescriptor1 = inputDesc1.value;
+  var newDescriptor2 = inputDesc2.value;
+  covers.push(newImage);
+  titles.push(newTitle);
+  descriptors.push(newDescriptor1);
+  descriptors.push(newDescriptor2);
+  makeCover(newImage, newTitle, newDescriptor1, newDescriptor2);
+  displayHomePage();
 }
 
-//event.preventDefault();
-
-//save submitted cover URL into the covers array
-//save submitted title string into the titles array
-//save submitted first descriptor into the descriptors array
-//save submitted second descriptor into the descriptors array
-//so that future random covers can use the user-created data
-
-// Use the values from the submitted inputs to create a new instance of the Cover class
-
-//Change back to the main home view
-//hide formview
-
-//Display the newly created cover image, title, and descriptors in the main cover
+///clearing form?
