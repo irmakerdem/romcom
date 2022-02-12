@@ -8,9 +8,14 @@ var makeCoverButton = document.querySelector(".make-new-button");
 var saveCoverButton = document.querySelector(".save-cover-button");
 var homeButton = document.querySelector(".home-button");
 var viewSavedCoversButton = document.querySelector(".view-saved-button")
+var makeMyBookButton = document.querySelector(".create-new-book-button");
 var viewForm = document.querySelector(".form-view");
 var homePage = document.querySelector(".home-view");
 var savedCoversSection = document.querySelector(".saved-covers-section");
+var inputImage = document.querySelector(".user-cover");
+var inputTitle = document.querySelector(".user-title");
+var inputDesc1 = document.querySelector(".user-desc1");
+var inputDesc2 = document.querySelector(".user-desc2");
 
 // We've provided a few variables below
 var savedCovers = [
@@ -24,6 +29,7 @@ randomCoverButton.addEventListener('click', randomizeBook);
 makeCoverButton.addEventListener('click', displayForm);
 viewSavedCoversButton.addEventListener('click', displaySavedCovers);
 homeButton.addEventListener('click', displayHomePage);
+makeMyBookButton.addEventListener('click', createNewCover);
 
 // Create your event handlers and other functions here 👇
 // We've provided one function to get you started
@@ -81,7 +87,7 @@ function displayHomePage() {
   hide(viewForm);
   // show homePage
   show(homePage);
-  // save cover page
+  /// save cover page
 };
 
 
@@ -100,3 +106,24 @@ function makeCover(newImage, newTitle, newDescriptor1, newDescriptor2) {
   tagLine1.innerText = newDescriptor1;
   tagLine2.innerText = newDescriptor2;
 }
+
+function createNewCover() {
+// declare variables and assign to input values
+// push values to arrays
+// call makeCover function
+}
+
+//event.preventDefault();
+
+//save submitted cover URL into the covers array
+//save submitted title string into the titles array
+//save submitted first descriptor into the descriptors array
+//save submitted second descriptor into the descriptors array
+//so that future random covers can use the user-created data
+
+// Use the values from the submitted inputs to create a new instance of the Cover class
+
+//Change back to the main home view
+//hide formview
+
+//Display the newly created cover image, title, and descriptors in the main cover
