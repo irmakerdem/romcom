@@ -11,6 +11,7 @@ var viewSavedCoversButton = document.querySelector(".view-saved-button")
 var makeMyBookButton = document.querySelector(".create-new-book-button");
 var viewForm = document.querySelector(".form-view");
 var homePage = document.querySelector(".home-view");
+var savedView = document.querySelector(".saved-view");
 var savedCoversSection = document.querySelector(".saved-covers-section");
 var inputImage = document.querySelector(".user-cover");
 var inputTitle = document.querySelector(".user-title");
@@ -27,10 +28,11 @@ var currentCover;
 window.addEventListener('load', randomizeBook);
 randomCoverButton.addEventListener('click', randomizeBook);
 makeCoverButton.addEventListener('click', displayForm);
-viewSavedCoversButton.addEventListener('click', displaySavedCovers);
+// viewSavedCoversButton.addEventListener('click', displaySavedCovers);
 homeButton.addEventListener('click', displayHomePage);
 makeMyBookButton.addEventListener('click', createNewCover);
 saveCoverButton.addEventListener('click', saveCover);
+viewSavedCoversButton.addEventListener('click', viewSavedCovers);
 
 
 // Create your event handlers and other functions here 👇
@@ -53,7 +55,7 @@ function displayForm() {
   hide(randomCoverButton);
   hide(saveCoverButton);
   show(homeButton);
-  /// save cover page
+  hide(savedCoversSection);
 };
 
 function displaySavedCovers() {
@@ -63,7 +65,9 @@ function displaySavedCovers() {
   hide(saveCoverButton);
   show(homeButton);
   hide(viewForm);
-  /// save cover page
+  show(savedView);
+  //show(savedCoversSection);
+  //displaySavedCovers()
 };
 
 function displayHomePage() {
@@ -72,7 +76,7 @@ function displayHomePage() {
   show(saveCoverButton);
   hide(viewForm);
   show(homePage);
-  /// save cover page
+  hide(savedCoversSection);
 };
 
 function randomizeBook() {
@@ -108,10 +112,24 @@ function createNewCover() {
 ///clearing form?
 
 function saveCover() {
-  //push current cover into saved covers array
-  //can only push cover once, no duplicates - use unique id?
-  //show/hide saved covers page/save covers button?
-  //make sure all saved covers display correctly
+  //conditional to only push cover once, no duplicates - use unique id?
+  //.includes or for loop
+  savedCovers.push(currentCover);
 
-  //makeCover(newImage, newTitle, newDescriptor1, newDescriptor2)???
 }
+
+function viewSavedCovers() {
+  event.preventDefault();
+  displaySavedCovers()
+  for (var i = 0; i < savedCovers.length; i++) {
+    savedCoversSection.innerHTML += `
+    <section class="mini-cover">
+    <img class="cover-image" src=${savedCovers[i].cover}>
+    <h2 class="cover-title">${savedCovers[i].title}</h2>
+    <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
+    <img class="price-tag" src="./assets/price.png">
+    <img class="overlay" src="./assets/overlay.png">
+    </section>`
+ }
+};
+  // show/hide saved covers page/save covers button?
