@@ -8,9 +8,14 @@ var makeCoverButton = document.querySelector(".make-new-button");
 var saveCoverButton = document.querySelector(".save-cover-button");
 var homeButton = document.querySelector(".home-button");
 var viewSavedCoversButton = document.querySelector(".view-saved-button")
+var makeMyBookButton = document.querySelector(".create-new-book-button");
 var viewForm = document.querySelector(".form-view");
 var homePage = document.querySelector(".home-view");
 var savedCoversSection = document.querySelector(".saved-covers-section");
+var inputImage = document.querySelector(".user-cover");
+var inputTitle = document.querySelector(".user-title");
+var inputDesc1 = document.querySelector(".user-desc1");
+var inputDesc2 = document.querySelector(".user-desc2");
 
 // We've provided a few variables below
 var savedCovers = [
@@ -24,13 +29,13 @@ randomCoverButton.addEventListener('click', randomizeBook);
 makeCoverButton.addEventListener('click', displayForm);
 viewSavedCoversButton.addEventListener('click', displaySavedCovers);
 homeButton.addEventListener('click', displayHomePage);
+makeMyBookButton.addEventListener('click', createNewCover);
 
 // Create your event handlers and other functions here 👇
 // We've provided one function to get you started
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
-
 
 function show(element) {
   element.classList.remove('hidden');
@@ -41,49 +46,32 @@ function hide(element) {
 }
 
 function displayForm() {
-  // show the form
   show(viewForm);
-  // hide the homepage
   hide(homePage);
-  // hide shownew random cover button
   hide(randomCoverButton);
-  // hide save cover button
   hide(saveCoverButton);
-  // show the home button
   show(homeButton);
   /// save cover page
 };
 
 function displaySavedCovers() {
-  // show saved covers section
   show(savedCoversSection);
-  // hide the homePage
   hide(homePage);
-  // hide show new random cover button
   hide(randomCoverButton);
-  // hide save cover button
   hide(saveCoverButton);
-  // show home button
   show(homeButton);
-  // hide view form
   hide(viewForm);
   /// save cover page
 };
 
 function displayHomePage() {
-  // hide home buttons
   hide(homeButton);
-  // show show new random cover button
   show(randomCoverButton);
-  // show save cover button
   show(saveCoverButton);
-  // hide viewForm
   hide(viewForm);
-  // show homePage
   show(homePage);
-  // save cover page
+  /// save cover page
 };
-
 
 function randomizeBook() {
   var newImage = covers[getRandomIndex(covers)];
@@ -100,3 +88,19 @@ function makeCover(newImage, newTitle, newDescriptor1, newDescriptor2) {
   tagLine1.innerText = newDescriptor1;
   tagLine2.innerText = newDescriptor2;
 }
+
+function createNewCover() {
+  event.preventDefault();
+  var newImage = inputImage.value;
+  var newTitle = inputTitle.value;
+  var newDescriptor1 = inputDesc1.value;
+  var newDescriptor2 = inputDesc2.value;
+  covers.push(newImage);
+  titles.push(newTitle);
+  descriptors.push(newDescriptor1);
+  descriptors.push(newDescriptor2);
+  makeCover(newImage, newTitle, newDescriptor1, newDescriptor2);
+  displayHomePage();
+}
+
+///clearing form?
