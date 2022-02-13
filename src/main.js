@@ -123,11 +123,12 @@ function saveCover() {
 }
 
 function viewSavedCovers() {
+  savedCoversSection.innerHTML = ``;
   event.preventDefault();
   displaySavedCovers()
   for (var i = 0; i < savedCovers.length; i++) {
     savedCoversSection.innerHTML += `
-    <section class="mini-cover">
+    <section class="mini-cover" id=${savedCovers[i].id}>
     <img class="cover-image" src=${savedCovers[i].cover}>
     <h2 class="cover-title">${savedCovers[i].title}</h2>
     <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
@@ -141,16 +142,18 @@ function viewSavedCovers() {
 
 
 function deleteSavedCover(event) {
-  var id = event.target.closest('.class');
-    // console.log(id);
-    // console.log(event);
+  var id = event.target.id;
   for (var i = 0; i < savedCovers.length; i++) {
-    if (id === savedCovers[i].class) {
-      savedCovers.slice();
+    if (id === savedCovers[i].id.toString()) {
+      savedCovers.splice(i, 1);
     }
   }
+  viewSavedCovers();
 }
 
+//${savedCovers[i].id}
+//.toString
+//ondblclick
 //.remove
-//splice(i, 1)
+//slice
 //event.target.closest('mini-cover').remove();
