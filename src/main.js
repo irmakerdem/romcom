@@ -28,12 +28,11 @@ var currentCover;
 window.addEventListener('load', randomizeBook);
 randomCoverButton.addEventListener('click', randomizeBook);
 makeCoverButton.addEventListener('click', displayForm);
-// viewSavedCoversButton.addEventListener('click', displaySavedCovers);
 homeButton.addEventListener('click', displayHomePage);
 makeMyBookButton.addEventListener('click', createNewCover);
 saveCoverButton.addEventListener('click', saveCover);
 viewSavedCoversButton.addEventListener('click', viewSavedCovers);
-
+savedCoversSection.addEventListener('dblclick', deleteSavedCover);
 
 // Create your event handlers and other functions here 👇
 // We've provided one function to get you started
@@ -56,6 +55,7 @@ function displayForm() {
   hide(saveCoverButton);
   show(homeButton);
   hide(savedCoversSection);
+  hide(savedView);
 };
 
 function displaySavedCovers() {
@@ -84,6 +84,11 @@ function randomizeBook() {
   var newTitle = titles[getRandomIndex(titles)];
   var newDescriptor1 = descriptors[getRandomIndex(descriptors)];
   var newDescriptor2 = descriptors[getRandomIndex(descriptors)];
+
+  if (newDescriptor1 === newDescriptor2) {
+    newDescriptor2 = descriptors[getRandomIndex(descriptors)]
+  };
+
   makeCover(newImage, newTitle, newDescriptor1, newDescriptor2)
 }
 
@@ -112,10 +117,9 @@ function createNewCover() {
 ///clearing form?
 
 function saveCover() {
-  //conditional to only push cover once, no duplicates - use unique id?
-  //.includes or for loop
-  savedCovers.push(currentCover);
-
+  if (!savedCovers.includes(currentCover)) {
+      savedCovers.push(currentCover);
+  }
 }
 
 function viewSavedCovers() {
@@ -132,4 +136,21 @@ function viewSavedCovers() {
     </section>`
  }
 };
-  // show/hide saved covers page/save covers button?
+
+//From the saved covers view, if a user double clicks a saved poster, it will be deleted
+
+
+function deleteSavedCover(event) {
+  var id = event.target.closest('.class');
+    // console.log(id);
+    // console.log(event);
+  for (var i = 0; i < savedCovers.length; i++) {
+    if (id === savedCovers[i].class) {
+      savedCovers.slice();
+    }
+  }
+}
+
+//.remove
+//splice(i, 1)
+//event.target.closest('mini-cover').remove();
