@@ -128,7 +128,6 @@ function saveCover() {
 
 function viewSavedCovers() {
   savedCoversSection.innerHTML = "";
-  displaySavedCovers()
   for (var i = 0; i < savedCovers.length; i++) {
     savedCoversSection.innerHTML += `
     <section class="mini-cover" id="${savedCovers[i].id}" onDblClick="deleteSavedCover(this.id)">
@@ -139,11 +138,12 @@ function viewSavedCovers() {
     <img class="overlay" src="./assets/overlay.png">
     </section>`
  }
+  displaySavedCovers()
 };
 
 function deleteSavedCover(id) {
   for (var i = 0; i < savedCovers.length; i++) {
-    if (id == savedCovers[i].id) {
+    if (+id === savedCovers[i].id) {
       savedCovers.splice(i, 1);
       viewSavedCovers();
     }
