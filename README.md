@@ -14,6 +14,9 @@ Our goal was to create an app that generates romance novel covers, with the foll
   * delete unwanted saved covers with a double click
 
 ## Instructions
+
+The website can be viewed [here](https://nhodnett.github.io/romcom/).
+
 ### Iteration 0: Main Page
   The website will generate a random cover on page load (and also on each page refresh).
 ### Iteration 1: Show Random Cover
@@ -26,6 +29,8 @@ Our goal was to create an app that generates romance novel covers, with the foll
   2. Provide an image address, a title, and two descriptors into the respective input fields
   3. Click "Make my book"
 
+  ![Creating a New Cover](https://media.giphy.com/media/1XIBw9rzrPXKQPV5uY/giphy.gif)
+
 ### Iteration 4: Saving and Viewing Covers
   The user can save either a randomly generated or custom cover by clicking the "Save Cover" button. This will save the cover currently displayed and allow them to see their saved selection later by clicking the "View Saved Covers" button.
 
@@ -33,9 +38,17 @@ Our goal was to create an app that generates romance novel covers, with the foll
   The user can delete a saved cover they no longer want to be saved by double clicking the respective cover on the "View Saved Covers" page.
 
 ## Future Features
+  * Implement data validation and error handling
+  * Allow users to drag and drop saved posters into whatever order they want them to appear
 
 ## Technologies Used
+  * JavaScript
+  * HTML
+  * CSS
 
 ## Contributors
+  * Irmak Erdem - https://github.com/irmakerdem
+  * Nathan Hodnett - https://github.com/nhodnett
 
 ## Deploy Link
+  * https://nhodnett.github.io/romcom/
