@@ -29,7 +29,7 @@ The website can be viewed [here](https://nhodnett.github.io/romcom/).
   2. Provide an image address, a title, and two descriptors into the respective input fields
   3. Click "Make my book"
 
-  ![Creating a New Cover](https://media.giphy.com/media/1XIBw9rzrPXKQPV5uY/giphy.gif)
+  ![Creating a New Cover](https://media.giphy.com/media/2HFtW3WV1m5J0jOgxa/giphy.gif)
 
 ### Iteration 4: Saving and Viewing Covers
   The user can save either a randomly generated or custom cover by clicking the "Save Cover" button. This will save the cover currently displayed and allow them to see their saved selection later by clicking the "View Saved Covers" button.
